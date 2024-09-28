@@ -1,5 +1,6 @@
 # shopping_list_manager.py
 
+# Function to display the menu options
 def display_menu():
     """
     Display the menu options for the shopping list manager.
@@ -10,6 +11,7 @@ def display_menu():
     print("3. View List")
     print("4. Exit")
 
+# Main function to manage the shopping list
 def main():
     """
     Main function to manage the shopping list.
