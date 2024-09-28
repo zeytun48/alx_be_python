@@ -14,17 +14,21 @@ def main():
     """
     Main function to manage the shopping list.
     """
-    # Initialize an empty shopping list
+    # Initialize an empty shopping list as an array (list)
     shopping_list = []
 
     while True:
-        # Display menu options to the user
+        # Call the display_menu function to show the menu options
         display_menu()
-        
-        # Get the user's choice
-        choice = input("Enter your choice: ")
 
-        if choice == '1':
+        # Use a try-except block to handle non-numeric input for choice
+        try:
+            choice = int(input("Enter your choice (1-4): "))  # Convert input to integer
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 4.")
+            continue  # Skip the rest of the loop and go back to displaying the menu
+
+        if choice == 1:
             # Prompt the user to enter an item name and add it to the list
             item = input("Enter the item to add: ").strip()
             if item:
@@ -32,7 +36,7 @@ def main():
                 print(f"{item} has been added to the list.")
             else:
                 print("Item name cannot be empty.")
-        elif choice == '2':
+        elif choice == 2:
             # Prompt the user to enter an item name and remove it from the list
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
@@ -40,7 +44,7 @@ def main():
                 print(f"{item} has been removed from the list.")
             else:
                 print(f"{item} not found in the list.")
-        elif choice == '3':
+        elif choice == 3:
             # Display the shopping list
             if shopping_list:
                 print("\nCurrent Shopping List:")
@@ -48,13 +52,13 @@ def main():
                     print(f"{i}. {item}")
             else:
                 print("The shopping list is currently empty.")
-        elif choice == '4':
+        elif choice == 4:
             # Exit the program
             print("Goodbye!")
             break
         else:
             # Handle invalid menu choices
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please enter a number between 1 and 4.")
 
 # Run the main function if this script is executed
 if __name__ == "__main__":
